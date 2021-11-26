@@ -19,7 +19,7 @@ class AjaxHivas {
             },
         });
     }
-    postAjax(fajlnev, myCallback) {
+    postAjax(fajlnev, adat) {
         const termekek = [];
         $.ajax({
             url: fajlnev,
@@ -30,7 +30,7 @@ class AjaxHivas {
             },
         });
     }
-    putAjax(fajlnev, myCallback) {
+    putAjax(fajlnev, adat, id) {
         const termekek = [];
         $.ajax({
             url: fajlnev + "/" + id,
@@ -41,12 +41,11 @@ class AjaxHivas {
             },
         });
     }
-    deleteAjax(fajlnev, myCallback) {
+    deleteAjax(fajlnev, id) {
         const termekek = [];
         $.ajax({
             url: fajlnev + "/" + id,
-            type: "DELETE",
-            data: adat,
+            type: "DELETE",          
             success: function (result) {
 
             },

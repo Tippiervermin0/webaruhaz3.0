@@ -14,12 +14,30 @@ $(function() {
         });
         sablonElem.remove(); //sablonelem eltávolítása
     }
-    $(window).on("torles", () => {
-        console.log("Töröltem magam!")
+    $(window).on("torles", (event) => {
+        
     });
-    $(window).on("modositas", () => {
-        console.log("Módosítottam magam!")
+    var hely;
+    $(window).on("modositas", (event) => {              
+        $("#nev").val(event.detail.nev)
+        $("#leir").val(event.detail.leiras)
+        $("#ar").val(event.detail.ar)
+        hely = (event.detail.id)        
     });
-    
+   
+    $(".modositas").click(function(){
+
+        var adat = {
+            id: hely,
+            nev: $("#nev").val(),
+            leiras: $("#leir").val(),
+            ar: $("#ar").val(),
+            kep: "kepek/kep_6.jpeg"
+                    }
+        let apivegpontuj="http://localhost:3000/termekek";
+        ajaxHivas.putAjax(apivegpontuj, adat, hely)
+
+
+    });
 
 });

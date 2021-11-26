@@ -4,6 +4,12 @@ $(function () {
   let apivegpont="http://localhost:3000/termekek";
   ajaxHivas.getAjax(apivegpont, termekLista)
 
+  $(window).on('termekKosarba', (event) => {
+    //itt hívjuk meg a kosarat és belepakoljuk a kosár tömbbe az
+    //aktuális termék adatait
+    kosar.setKosar(event.detail)
+  })
+
   function termekLista(termekek) {
     const szuloElem = $('.termekek')
     const sablonElem = $('.sablon .termek')
@@ -16,11 +22,7 @@ $(function () {
     })
     sablonElem.hide() //sablonelem eltávolítása
 
-    $(window).on('termekKosarba', (event) => {
-      //itt hívjuk meg a kosarat és belepakoljuk a kosár tömbbe az
-      //aktuális termék adatait
-      kosar.setKosar(event.detail)
-    })
+    
   }
   $("#tname").keyup(function(){
     let apivegpontuj="http://localhost:3000/termekek?q="+ $("#tname").val();

@@ -36,6 +36,7 @@ class TermekAdmin extends Termek {
         this.termekKep = this.node.children(".kep ").children("img");
         this.termekTorles = this.node.children(".torles").children("button");
         this.termekModosit = this.node.children(".modosit").children("button");
+        
         this.setAdat(this.adat);
         this.termekTorles.on("click ", () => {
             this.kattintasTrigger("torles");
@@ -45,6 +46,7 @@ class TermekAdmin extends Termek {
             this.kattintasTrigger("modositas");
 
         });
+       
     }
 
 
